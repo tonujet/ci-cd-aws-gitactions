@@ -30,9 +30,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
-    - name: Check python
-      run: python3 --version
     
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag tonujet/iit-lab4
