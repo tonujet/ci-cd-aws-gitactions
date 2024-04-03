@@ -15,8 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Create tag
-      run: export TAG=$(date +%s)
+    - name: Set tag env var
+      run: echo "TAG=$(date +%s)" >> $GITHUB_ENV
 
     - name: Read tag
       run: echo $TAG
