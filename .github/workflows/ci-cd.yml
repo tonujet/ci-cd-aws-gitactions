@@ -18,6 +18,12 @@ jobs:
     - name: Run
       run: echo $VARRRR
 
+    - name: PWD
+      run: pwd
+
+    - name: ls
+      run: ls
+
     - run: echo ${{secrets.DOCKER_HUB_USERNAME}} 
     
     - name: Build the Docker image
