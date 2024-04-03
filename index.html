@@ -9,11 +9,14 @@
     <div class="page">
         <h1>Anton Vorobei</h1>
         <p>Student in IA-11 </p>
-        <p>Push 2</p>
+        <p class="page_push">Push 2</p>
     </div>
     <style>
         html, body, .page {
             height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
@@ -28,7 +31,17 @@
         }
 
         .page {
-            flex: 0 0 10%;
+            flex: 0 0 100px;
+            margin-bottom: 100px;
+        }
+
+        .page_push {
+            text-align: center;
+            background: green;
+            color: #fff;
+            box-shadow: 0 5px 1px #000;
+            padding: 5px 0;
+            border-radius: 5px;
         }
     </style>
 </body>
