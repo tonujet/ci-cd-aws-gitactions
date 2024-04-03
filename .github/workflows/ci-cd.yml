@@ -17,6 +17,9 @@ jobs:
 
     - name: Create tag
       run: TAG=$(date +%s)
+
+    - name: Read tag
+      run: echo $TAG
     
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag tonujet/iit-lab4:`echo $TAG`
