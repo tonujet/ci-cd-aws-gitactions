@@ -17,17 +17,12 @@ jobs:
 
     - name: Run
       run: echo $VARRRR
-
-    - name: PWD
-      run: pwd
-
-    - name: ls
-      run: ls
-
-    - run: echo ${{secrets.DOCKER_HUB_USERNAME}} 
     
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag tonujet/iit-lab4:$(date +%s)
     
     - name: Login to docker hub
-      run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_PASSWD}}       
+      run: docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{secrets.DOCKERHUB_TOKEN}}
+
+    - name: Push containter to docker hub
+      run: docker push tonujet/iit-lab4
