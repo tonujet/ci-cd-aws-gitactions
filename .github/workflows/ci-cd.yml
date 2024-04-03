@@ -21,11 +21,11 @@ jobs:
         run: pip install djlint
 
       - name: Lint all html code
-        run: djlint . --reformat --warn
+        run: djlint . --reformat
 
 
   build:
-    needs: linter
+    needs: format
     runs-on: ubuntu-latest
 
     steps:
