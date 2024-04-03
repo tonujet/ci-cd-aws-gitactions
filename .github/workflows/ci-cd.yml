@@ -19,7 +19,7 @@ jobs:
       run: echo "TAG=$(date +%s)" >> $GITHUB_ENV
 
     - name: Read tag
-      run: echo "Current tag: $TAG"
+      run: echo "Current tag => $TAG"
     
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag tonujet/iit-lab4:$TAG
