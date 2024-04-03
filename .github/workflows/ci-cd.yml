@@ -17,8 +17,11 @@ jobs:
         with:
           python-version: '3.10' 
       
-      - name: pip version
-        run: pip --version
+      - name: Install html linter
+        run: pip install djlint
+
+      - name: Lint all html code
+        run: djlint . --reformat
 
 
   build:
@@ -37,8 +40,13 @@ jobs:
     - name: Login to docker hub
       run: docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{secrets.DOCKERHUB_TOKEN}}
 
+    - name: Push image to docker hub
+      run: docker push tonujet/iit-lab4
+
     - name: List all docker images
       run: docker image ls
 
-    - name: Push containter to docker hub
-      run: docker push tonujet/iit-lab4
+    - name: Clear all docker images
+      run: docker rmi -f $(docker images -aq)
+
+    
