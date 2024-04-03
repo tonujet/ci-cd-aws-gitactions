@@ -25,7 +25,7 @@ jobs:
 
 
   build:
-    needs: format
+    needs: linter
     runs-on: ubuntu-latest
 
     steps:
