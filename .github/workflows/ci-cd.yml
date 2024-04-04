@@ -51,9 +51,6 @@ jobs:
   provision:
     needs: build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./terraform
         
     env:
       AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
@@ -61,6 +58,7 @@ jobs:
       TF_API_TOKEN: ${{secrets.TF_API_TOKEN}}
       TF_WORKSPACE: "iit_lab5"
       TF_CLOUD_ORGANIZATION: "tonujet"
+      CONFIG_DIRECTORY: "./terraform"
 
     steps:
       - uses: actions/checkout@v4
@@ -74,6 +72,7 @@ jobs:
         id: apply-upload
         with:
           workspace: ${{ env.TF_WORKSPACE }}
+          directory: ${{ env.CONFIG_DIRECTORY }}
       
       - name: Create Apply Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
