@@ -42,7 +42,7 @@ resource "aws_security_group" "http_server" {
 
   lifecycle {
     replace_triggered_by = [
-      aws_instance.web.id
+      "${aws_instance.web.id}"
     ]
   }
 }
