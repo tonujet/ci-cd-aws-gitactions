@@ -9,15 +9,13 @@ terraform {
 
 provider "aws" {
   region     = "eu-north-1"
-  access_key = "AKIA47CRXLNWBXHXOOY4"
-  secret_key = "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"
 }
 
 resource "aws_instance" "web" {
   ami                    = "ami-0914547665e6a707c"
   instance_type          = "t3.micro"
   key_name               = "first"
-  # vpc_security_group_ids = [aws_security_group.http_server.id]
+  vpc_security_group_ids = [aws_security_group.http_server.id]
 
   tags = {
     Name = "FromTerraform"
