@@ -68,6 +68,8 @@ jobs:
       - name: Check env vars
         run: echo $AWS_SECRET_ACCESS_KEY
 
+      - run: pwd
+      
       - name: Init terraform
         run: terraform init
 
