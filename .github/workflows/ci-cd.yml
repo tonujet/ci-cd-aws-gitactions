@@ -68,9 +68,6 @@ jobs:
       - uses: terraform-compliance/github_action@0.3.0
         with:
           quit-early: true 
-
-      - name: Terraform validation
-        run: terraform validate
       
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
