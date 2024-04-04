@@ -5,14 +5,6 @@ terraform {
       version = "~> 4.16"
     }
   }
-  cloud {
-    organization = "tonujet"
-
-    workspaces {
-      name = "iit_lab5"
-    }
-    
-  }
 }
 
 provider "aws" {
