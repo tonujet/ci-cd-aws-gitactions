@@ -5,17 +5,27 @@ terraform {
       version = "~> 4.16"
     }
   }
+  cloud {
+    organization = "tonujet"
+
+    workspaces {
+      name = "iit_lab5"
+    }
+    
+  }
 }
 
 provider "aws" {
   region     = "eu-north-1"
+  access_key = "AKIA47CRXLNWBXHXOOY4"
+  secret_key = "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"
 }
 
 resource "aws_instance" "web" {
   ami                    = "ami-0914547665e6a707c"
   instance_type          = "t3.micro"
   key_name               = "first"
-  vpc_security_group_ids = [aws_security_group.http_server.id]
+  # vpc_security_group_ids = [aws_security_group.http_server.id]
 
   tags = {
     Name = "FromTerraform"
@@ -30,7 +40,6 @@ resource "aws_instance" "web" {
 }
 
 
-
 resource "aws_security_group" "http_server" {
   name        = "http_server"
   description = "Http_server inbound traffic and all outbound traffic"
@@ -38,12 +47,6 @@ resource "aws_security_group" "http_server" {
 
   tags = {
     Name = "http_server"
-  }
-
-  lifecycle {
-    replace_triggered_by = [
-      "${aws_instance.web.id}"
-    ]
   }
 }
 
