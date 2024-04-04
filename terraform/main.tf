@@ -39,6 +39,12 @@ resource "aws_security_group" "http_server" {
   tags = {
     Name = "http_server"
   }
+
+  lifecycle {
+    replace_triggered_by = [
+      aws_instance.web.id
+    ]
+  }
 }
 
 resource "aws_vpc_security_group_ingress_rule" "http_server_http_rule" {
