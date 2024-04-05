@@ -5,11 +5,25 @@ terraform {
       version = "~> 4.16"
     }
   }
+
+   cloud {
+    organization = "tonujet"
+
+    workspaces {
+      name = "iit_lab5"
+    }
+  }
+
+  # set TF_WORKSPACE=iit_lab5
+  # set CONFIG_DIRECTORY=./terraform
+  # set TF_CLOUD_ORGANIZATION=tonujet
 }
 
 provider "aws" {
   region     = "eu-north-1"
 }
+
+
 
 resource "aws_instance" "web" {
   ami                    = "ami-0914547665e6a707c"
