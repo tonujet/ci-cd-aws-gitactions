@@ -28,11 +28,11 @@ provider "aws" {
 resource "aws_instance" "web" {
   ami                    = "ami-0914547665e6a707c"
   instance_type          = "t3.micro"
-  key_name               = "iit"
+  key_name               = "anton_key"
   vpc_security_group_ids = [aws_security_group.http_server.id]
 
   tags = {
-    Name = "FromTerraform"
+    Name = "(anton_lab6"
   }
   user_data = <<-EOF
     #!/bin/bash
@@ -47,7 +47,7 @@ resource "aws_instance" "web" {
 resource "aws_security_group" "http_server" {
   name        = "http_server"
   description = "Http_server inbound traffic and all outbound traffic"
-  vpc_id      = "vpc-0d975e8b89c4605d4"
+  vpc_id      = "vpc-0cb5090078bee29d7"
 
   tags = {
     Name = "http_server"
