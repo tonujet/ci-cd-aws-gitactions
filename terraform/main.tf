@@ -32,7 +32,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [aws_security_group.http_server.id]
 
   tags = {
-    Name = "(anton_lab6"
+    Name = "anton_lab6"
   }
   user_data = <<-EOF
     #!/bin/bash
